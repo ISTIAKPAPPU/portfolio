@@ -543,8 +543,11 @@ body.dark-theme {
   font-size: var(--normal-font-size);
   margin-bottom: 1.25rem;
 }
-
+.qualification__info-description {
+  padding-right: 4rem;
+}
 .qualification__country,
+.qualification__info-description,
 .qualification__year {
   display: block;
   font-size: var(--small-font-size);
