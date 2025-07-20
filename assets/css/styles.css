@@ -343,7 +343,7 @@ body.dark-theme {
   /* for dark mode animation */
 }
 
-.home__perfil {
+/* .home__perfil {
   width: 170px;
   height: 260px;
   background: var(--gradient-color);
@@ -352,11 +352,33 @@ body.dark-theme {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+} */
+
+/* .home__perfil img {
+  width: 150px;
+} */
+.home__perfil {
+  width: 170px;
+  height: 260px;
+  border-radius: 5.5rem;
+  overflow: hidden;
+  background: var(--gradient-color);
+  position: relative;
 }
 
 .home__perfil img {
-  width: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.45); /* Adjust this value to zoom just enough */
 }
+
+
+
 
 .home__shape-wawes,
 .home__shape-circle {
