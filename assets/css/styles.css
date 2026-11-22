@@ -463,3 +463,12 @@ h2 { font-size: clamp(38px, 6.4vw, 76px); line-height: 0.86; margin-bottom: 26px
   .timeline > li.reveal, .pubs li.reveal, .skills > div.reveal, .edu > div.reveal { transform: none; }
   .modal { animation: none; }
 }
+
+/* ---------- refinements (2026-11-22) ---------- */
+.research-intro { color: #c9d6e2; font-size: 17px; line-height: 1.6; max-width: 68ch; margin: 0 0 30px; }
+.award { border-left: 3px solid #d9b45b; background: rgba(255, 255, 255, 0.03); }
+.award .kicker { color: #e2c27a; }
+.pub-v strong { color: #e2c27a; font-weight: 700; }
+.card-text .arrow + .arrow { margin-left: 22px; }
+.mini:not(a) { cursor: default; }
+@media (max-width: 520px) { .hero-title { letter-spacing: -0.02em; } }
