@@ -28,10 +28,10 @@
     <a class="brand" href="#top">Istiak Ahmed</a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav-links" aria-label="Sections">
-      <a href="#work">Work</a>
-      <a href="#research">Research</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
+      <a href="#work">Work</a>
+      <a href="#research">Research</a>
       <a href="#education">Education</a>
       <a href="#contact">Contact</a>
       <a class="nav-cv" href="istiak-ahmed-cv.pdf">CV</a>
@@ -42,9 +42,10 @@
 <main id="top">
 
   <section class="hero">
+    <div class="hero-grid" aria-hidden="true"><div class="hero-grid-plane"></div></div>
     <div class="hero-text">
       <h1 class="hero-name">
-        <svg class="reticle" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="11"/><circle cx="20" cy="20" r="2.2"/><path d="M20 2v10M20 28v10M2 20h10M28 20h10"/></svg>
+        <svg class="reticle" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle class="ret-pulse" cx="20" cy="20" r="11"/><circle class="ret-ring" cx="20" cy="20" r="11"/><line class="ret-line" x1="20" y1="2" x2="20" y2="12"/><line class="ret-line" x1="20" y1="28" x2="20" y2="38"/><line class="ret-line" x1="2" y1="20" x2="12" y2="20"/><line class="ret-line" x1="28" y1="20" x2="38" y2="20"/><circle class="ret-dot" cx="20" cy="20" r="2.2"/></svg>
         Istiak Ahmed
       </h1>
       <p class="hero-role">Open to XR, Unity, game and research roles</p>
@@ -65,8 +66,52 @@
     <h2 class="section-title" id="about-t">About</h2>
     <div class="section-body prose">
       <p class="about-lead">I build real-time XR systems and games in Unity: headset applications that bring AI models into live sessions, gameplay systems and real-time multiplayer.</p>
-      <p>Today, as a Ph.D. student in Computer Science and a graduate research assistant in the DCPS Laboratory at the University of Missouri, I build real-time XR systems on Meta Quest, HoloLens, Magic Leap and HTC Vive; that research has produced 9 peer-reviewed papers and an IEEE ISMAR 2025 Best Poster Award.</p>
+      <p>Today, as a Ph.D. student in Computer Science and a graduate research assistant in the DCPS Laboratory at the University of Missouri, I build real-time XR systems on Meta Quest, HoloLens, Magic Leap and HTC Vive.</p>
       <p>Before that, I started at Arclite Systems building casual and card games and shipped Air Hockey Glow HD to the App Store and Google Play (500K+ downloads and a 4.6-star rating on Google Play). At Softwind Tech I built AR and VR experiences for clients, from VR sports games and brand activations to a large-scale, multi-stage VR training simulation, and implemented real-time multiplayer with Photon. At Torpedo Labs I shipped player-facing features and game modes for the live casino-style title Wynn Slots across its Unity/C# client and Java backend.</p>
+    </div>
+  </section>
+
+  <section class="section" id="experience" aria-labelledby="experience-t">
+    <h2 class="section-title" id="experience-t">Experience</h2>
+    <div class="section-body">
+      <ol class="timeline">
+        <li>
+          <div class="t-head"><h3>Graduate Research Assistant</h3><span class="t-when">Jan 2025 – Present</span></div>
+          <p class="t-org">DCPS Laboratory, University of Missouri, Columbia, MO</p>
+          <ul><li>Built real-time XR pipelines that deliver vision-language and computer-vision model results to the live XR session within frame budget, streaming egocentric camera frames, head and eye tracking and physiological sensor data from the headset over REST.</li><li>Own the client side of headset-to-server links: pose and telemetry channels, REST integration with backend services, and reconnection and graceful degradation on unreliable networks.</li><li>Develop Unity AR, VR and MR applications in C# for Meta Quest, Microsoft HoloLens, Magic Leap and HTC Vive, from initial prototyping to standalone deployment.</li><li>Developed cybersickness prediction and personalized mitigation methods using pre-trained foundation models, reinforcement learning and large language models, and evaluated them in controlled VR user studies.</li><li>Profile standalone builds with the Unity Profiler and test them on device before every user study, checking target frame rates under continuous capture, streaming and inference.</li></ul>
+        </li>
+        <li>
+          <div class="t-head"><h3>Software Engineer</h3><span class="t-when">Oct 2023 – Nov 2024</span></div>
+          <p class="t-org">Torpedo Labs, Inc., Las Vegas, NV (Remote)</p>
+          <ul><li>Shipped player-facing features and game modes for Wynn Slots across the Unity/C# client and Java backend services; the live casino-style title is rated 4.6 stars across ~50K App Store ratings.</li><li>Shipped multiple game types across Android devices on a shared economy, state machine and UI framework, keeping game logic consistent across client and server.</li><li>Debugged and resolved production issues across client and server on live builds, owning each fix from reproduction through testing and release.</li></ul>
+        </li>
+        <li>
+          <div class="t-head"><h3>Unity Developer</h3><span class="t-when">Nov 2021 – Sep 2023</span></div>
+          <p class="t-org">Softwind Tech Ltd., Dhaka, Bangladesh</p>
+          <ul><li>Built client AR and VR experiences from brief through release on fixed schedules, including a large-scale, multi-stage VR training simulation, VR sports games and brand activations.</li><li>Implemented real-time multiplayer with Photon across VR and mobile clients, covering matchmaking, state synchronization and lag compensation.</li><li>Developed and tuned physics-driven ball, bat and kick interactions in the headset for the VR sports games Cricket Challenge, Football Challenge and Penalty Shoot.</li><li>Integrated real-time, on-device object detection into a native Android application for the United Nations World Food Programme, using computer-vision models.</li></ul>
+        </li>
+        <li>
+          <div class="t-head"><h3>Assistant Software Engineer</h3><span class="t-when">Jun 2021 – Oct 2021</span></div>
+          <p class="t-org">Arclite Systems Ltd., Dhaka, Bangladesh</p>
+          <ul><li>Shipped Air Hockey Glow HD with local multiplayer to the App Store and Google Play, iterating on features through code review and testing; the arcade title has 500K+ downloads and a 4.6-star rating on Google Play.</li><li>Developed 2D and 3D casual, hyper-casual and card games in Unity and C#, implementing core gameplay mechanics, UI and progression systems from design specifications.</li></ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="skills" aria-labelledby="skills-t">
+    <h2 class="section-title" id="skills-t">Skills</h2>
+    <div class="section-body">
+      <dl class="skills">
+        <div><dt>Languages</dt><dd>C#, C++, C, Java, Kotlin, Python</dd></div>
+        <div><dt>Engine and XR</dt><dd>Unity, Unity Profiler, OpenXR, Meta XR SDK, XR Interaction Toolkit, MRUK, eye and hand tracking</dd></div>
+        <div><dt>Platforms</dt><dd>Meta Quest, Microsoft HoloLens, Magic Leap, HTC Vive, native Android, iOS (Unity), WebGL</dd></div>
+        <div><dt>Networking</dt><dd>Multiplayer networking with Photon and Mirror, REST APIs</dd></div>
+        <div><dt>AI and ML</dt><dd>PyTorch, vision-language models, large language models, reinforcement learning, computer vision, explainable AI, differential privacy</dd></div>
+        <div><dt>Engineering and research</dt><dd>Real-time XR systems, gameplay systems, performance optimization, software architecture and refactoring, XR user studies, XR security and privacy research</dd></div>
+        <div><dt>Tools</dt><dd>Git, Jira</dd></div>
+        <div><dt>Problem solving</dt><dd>500+ algorithm problems solved, mostly in C++ (Codeforces, CodeChef, LeetCode and others)</dd></div>
+      </dl>
     </div>
   </section>
 
@@ -234,50 +279,6 @@
     </div>
   </section>
 
-  <section class="section" id="experience" aria-labelledby="experience-t">
-    <h2 class="section-title" id="experience-t">Experience</h2>
-    <div class="section-body">
-      <ol class="timeline">
-        <li>
-          <div class="t-head"><h3>Graduate Research Assistant</h3><span class="t-when">Jan 2025 – Present</span></div>
-          <p class="t-org">DCPS Laboratory, University of Missouri, Columbia, MO</p>
-          <ul><li>Built real-time XR pipelines that deliver vision-language and computer-vision model results to the live XR session within frame budget, streaming egocentric camera frames, head and eye tracking and physiological sensor data from the headset over REST.</li><li>Own the client side of headset-to-server links: pose and telemetry channels, REST integration with backend services, and reconnection and graceful degradation on unreliable networks.</li><li>Develop Unity AR, VR and MR applications in C# for Meta Quest, Microsoft HoloLens, Magic Leap and HTC Vive, from initial prototyping to standalone deployment.</li><li>Developed cybersickness prediction and personalized mitigation methods using pre-trained foundation models, reinforcement learning and large language models, and evaluated them in controlled VR user studies.</li><li>Profile standalone builds with the Unity Profiler and test them on device before every user study, checking target frame rates under continuous capture, streaming and inference.</li></ul>
-        </li>
-        <li>
-          <div class="t-head"><h3>Software Engineer</h3><span class="t-when">Oct 2023 – Nov 2024</span></div>
-          <p class="t-org">Torpedo Labs, Inc., Las Vegas, NV (Remote)</p>
-          <ul><li>Shipped player-facing features and game modes for Wynn Slots across the Unity/C# client and Java backend services; the live casino-style title is rated 4.6 stars across ~50K App Store ratings.</li><li>Shipped multiple game types across Android devices on a shared economy, state machine and UI framework, keeping game logic consistent across client and server.</li><li>Debugged and resolved production issues across client and server on live builds, owning each fix from reproduction through testing and release.</li></ul>
-        </li>
-        <li>
-          <div class="t-head"><h3>Unity Developer</h3><span class="t-when">Nov 2021 – Sep 2023</span></div>
-          <p class="t-org">Softwind Tech Ltd., Dhaka, Bangladesh</p>
-          <ul><li>Built client AR and VR experiences from brief through release on fixed schedules, including a large-scale, multi-stage VR training simulation, VR sports games and brand activations.</li><li>Implemented real-time multiplayer with Photon across VR and mobile clients, covering matchmaking, state synchronization and lag compensation.</li><li>Developed and tuned physics-driven ball, bat and kick interactions in the headset for the VR sports games Cricket Challenge, Football Challenge and Penalty Shoot.</li><li>Integrated real-time, on-device object detection into a native Android application for the United Nations World Food Programme, using computer-vision models.</li></ul>
-        </li>
-        <li>
-          <div class="t-head"><h3>Assistant Software Engineer</h3><span class="t-when">Jun 2021 – Oct 2021</span></div>
-          <p class="t-org">Arclite Systems Ltd., Dhaka, Bangladesh</p>
-          <ul><li>Shipped Air Hockey Glow HD with local multiplayer to the App Store and Google Play, iterating on features through code review and testing; the arcade title has 500K+ downloads and a 4.6-star rating on Google Play.</li><li>Developed 2D and 3D casual, hyper-casual and card games in Unity and C#, implementing core gameplay mechanics, UI and progression systems from design specifications.</li></ul>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="section" id="skills" aria-labelledby="skills-t">
-    <h2 class="section-title" id="skills-t">Skills</h2>
-    <div class="section-body">
-      <dl class="skills">
-        <div><dt>Languages</dt><dd>C#, C++, Java, Python</dd></div>
-        <div><dt>Engine and XR</dt><dd>Unity, Unity Profiler, OpenXR, Meta XR SDK, XR Interaction Toolkit, MRUK, eye and hand tracking</dd></div>
-        <div><dt>Platforms</dt><dd>Meta Quest, Microsoft HoloLens, Magic Leap, HTC Vive, native Android, iOS (Unity), WebGL</dd></div>
-        <div><dt>Networking</dt><dd>Photon, REST APIs</dd></div>
-        <div><dt>AI and ML</dt><dd>PyTorch, vision-language models, large language models, reinforcement learning, computer vision, explainable AI, differential privacy</dd></div>
-        <div><dt>Engineering and research</dt><dd>Gameplay systems, multiplayer networking, performance optimization, real-time XR systems, software architecture and refactoring, XR user studies</dd></div>
-        <div><dt>Tools</dt><dd>Git, Jira</dd></div>
-        <div><dt>Problem solving</dt><dd>500+ algorithm problems solved, mostly in C++ (Codeforces, CodeChef, LeetCode and others)</dd></div>
-      </dl>
-    </div>
-  </section>
-
   <section class="section" id="education" aria-labelledby="education-t">
     <h2 class="section-title" id="education-t">Education</h2>
     <div class="section-body">
@@ -303,11 +304,14 @@
 
 <div class="modal" id="modal" hidden>
   <div class="modal-inner">
-    <button class="modal-close" id="modalClose">Close</button>
+    <button class="modal-close" id="modalClose" aria-label="Close video">Close</button>
     <div class="modal-frame"><div id="modalMount"></div></div>
   </div>
 </div>
 
-<script src="assets/js/main.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/gsap.min.js" integrity="sha384-3vCAhD+a3BOliP3QqjQINn6ZWiZxoqu0WFxX5ZQZgqekDZuSb1mJBrrLMmu94H8f" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/ScrollTrigger.min.js" integrity="sha384-H2WL1iy/jKQQ7MTHU2hskZKNHTYWWD/KgKE1vCNnaWY8An2ESTh23KN/fTp8XS3j" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/DrawSVGPlugin.min.js" integrity="sha384-fynVx3iMchteqKcx/rkUAX8fWugxllTPhisYGTDw03tf1trspBGOvlurai60MD4A" crossorigin="anonymous"></script>
+<script defer src="assets/js/main.js"></script>
 </body>
 </html>
