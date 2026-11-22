@@ -60,44 +60,58 @@
   modal.addEventListener('click', function (e) { if (e.target === modal) { closeVideo(); } });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) { closeVideo(); } });
 
-  /* ---- motion (GSAP, per the official gsap-* skills). Progressive enhancement: without GSAP, or with
-          prefers-reduced-motion, nothing is hidden and nothing moves. Transform/opacity only. ---- */
-  if (!window.gsap) { return; }
-  var plugins = [window.ScrollTrigger, window.DrawSVGPlugin].filter(Boolean);
-  if (plugins.length) { gsap.registerPlugin.apply(gsap, plugins); }
+  /* ---- motion (GSAP, per the official gsap-* skills). Runs for every visitor, including reduced-motion
+          settings (owner's decision 2026-11-22). Progressive enhancement: without GSAP nothing is hidden.
+          Transform/opacity only. ---- */
+  if (!window.gsap || !window.ScrollTrigger) { return; }
+  gsap.registerPlugin(ScrollTrigger);
 
-  var mm = gsap.matchMedia();
-  mm.add('(prefers-reduced-motion: no-preference)', function () {
-    /* 1. reticle "calibrates": rings draw, cross-hair slides in, centre locks; then a slow pulse */
-    var tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
-    if (window.DrawSVGPlugin) { tl.from('.ret-ring', { drawSVG: '50% 50%', duration: 0.9 }, 0.15); }
-    tl.from('.ret-line', { scale: 0, autoAlpha: 0, transformOrigin: '50% 50%', duration: 0.45, stagger: 0.07 }, 0.35)
-      .from('.ret-dot', { scale: 0, transformOrigin: '50% 50%', duration: 0.5, ease: 'back.out(3)' }, 0.8);
-    gsap.fromTo('.ret-pulse', { scale: 1, opacity: 0.55, transformOrigin: '50% 50%' },
-      { scale: 1.7, opacity: 0, duration: 2.4, ease: 'sine.out', repeat: -1, repeatDelay: 1.8, delay: 1.5 });
+  /* 1. scroll progress line along the bottom of the top bar */
+  gsap.to('.nav-progress', {
+    scaleX: 1, ease: 'none',
+    scrollTrigger: { trigger: document.documentElement, start: 'top top', end: 'bottom bottom', scrub: 0.3 }
+  });
 
-    if (!window.ScrollTrigger) { return; }
-
-    /* 3. live XR grid: drifts and fades with scroll (scrub) */
-    gsap.to('.hero-grid', {
-      yPercent: 16, autoAlpha: 0.25, ease: 'none',
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
-    });
-
-    /* 2. section entrance: nothing is pre-hidden. Each element animates FROM hidden only at the moment it
-          enters, so an anchor jump (e.g. #contact) or a failed trigger can never leave content invisible. */
-    /* Only on a normal top-of-page load, and only for content still below the screen when GSAP arrives
-       (it loads from the CDN after first paint): no flicker on visible content, no fades on anchor jumps. */
-    if (location.hash || window.scrollY > 10) { return; }
-    var screenBottom = window.innerHeight;
-    var targets = gsap.utils.toArray('.section-title, .about-lead, .prose p, .group-title, .work, .mini, ' +
-      '.timeline > li, .skills > div, .award, .pubs li, .edu li, .contact-lead')
-      .filter(function (el) { return el.getBoundingClientRect().top > screenBottom; });
-    ScrollTrigger.batch(targets, {
-      start: 'top 94%', once: true,
-      onEnter: function (batch) {
-        gsap.from(batch, { autoAlpha: 0, y: 16, duration: 0.6, ease: 'power2.out', stagger: 0.07, overwrite: true });
+  /* 2. current section: underline its link in the top bar */
+  var navLinks = {};
+  [].forEach.call(document.querySelectorAll('.nav-links a[href^="#"]'), function (a) { navLinks[a.getAttribute('href').slice(1)] = a; });
+  [].forEach.call(document.querySelectorAll('main section[id], footer[id]'), function (sec) {
+    var link = navLinks[sec.id === 'archive' ? 'work' : sec.id === 'about' ? '' : sec.id];
+    if (!link) { return; }
+    ScrollTrigger.create({
+      trigger: sec, start: 'top 45%', end: 'bottom 45%',
+      onToggle: function (self) {
+        link.classList.toggle('is-active', self.isActive);
+        if (self.isActive) { link.setAttribute('aria-current', 'true'); } else { link.removeAttribute('aria-current'); }
       }
     });
+  });
+
+  /* 3. live XR grid: drifts and fades with scroll (scrub) */
+  gsap.to('.hero-grid', {
+    yPercent: 16, autoAlpha: 0.25, ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
+  });
+
+  /* 4. entrance while scrolling. Nothing is pre-hidden: each element animates FROM hidden at the moment it
+        enters. Only on a normal top-of-page load and only for content still below the screen when GSAP
+        arrives (it loads after first paint), so visible content never flickers and anchor jumps stay clean. */
+  if (location.hash || window.scrollY > 10) { return; }
+  var screenBottom = window.innerHeight;
+  function below(sel) {
+    return gsap.utils.toArray(sel).filter(function (el) { return el.getBoundingClientRect().top > screenBottom; });
+  }
+  var titles = below('.section-title');                                  // reads first ...
+  var items = below('.about-lead, .prose p, .group-title, .work, .mini, .timeline > li, .skills > div, ' +
+    '.award, .pubs li, .edu li, .contact-lead, .contact .hero-actions, .contact-links');
+  ScrollTrigger.batch(titles, {                                           // ... then animations
+    start: 'top 92%', once: true,
+    onEnter: function (batch) { gsap.from(batch, { autoAlpha: 0, x: -20, duration: 0.7, ease: 'power3.out', overwrite: true }); }
+  });
+  ScrollTrigger.batch(items, {
+    start: 'top 94%', once: true,
+    onEnter: function (batch) {
+      gsap.from(batch, { autoAlpha: 0, y: 24, duration: 0.7, ease: 'power3.out', stagger: 0.08, overwrite: true });
+    }
   });
 })();

@@ -58,12 +58,13 @@ Method: Anthropic `frontend-design` skill (two passes: plan, review against the 
 1. **One memorable element:** a small calibration reticle, the cross-hair used to align XR headsets. It sits beside the name and is reused only as the focus ring and a section-title tick. Everything else stays quiet.
 2. **Structure carries information:** projects are grouped by kind (XR systems, shipped games, VR/Android/WebGL) instead of numbered 01–11; publications are grouped by year.
 3. **Proof over decoration:** every card ends in plain-text actions (Watch demo, View code, Google Play, App Store, Play in browser). No arrows.
-4. **Motion (updated 2026-11-22 at the owner's request: the page should feel alive).** Built with GSAP 3.15.1, following GreenSock's official gsap-* skills:
-   - The reticle "calibrates" on load (DrawSVG rings, cross-hair, centre lock), then pulses slowly.
-   - Below-the-fold content fades in once as it enters (ScrollTrigger.batch); nothing visible is ever re-hidden.
+4. **Motion (owner's request 2026-11-22: the page should feel alive, for every visitor).** Built with GSAP 3.15.1 + ScrollTrigger, following GreenSock's official gsap-* skills:
+   - Section titles slide in and content fades up 24px with a stagger as you scroll (ScrollTrigger.batch, once). Nothing visible is ever re-hidden.
    - Cards lift and zoom on hover (CSS), with a play-button ping.
    - A faint perspective XR grid drifts behind the hero and fades with scroll (scrub).
-   - Transform and opacity only. Everything is off under `prefers-reduced-motion`, and the page works fully without JS or GSAP.
+   - A teal scroll-progress line runs along the top bar; the current section's link is underlined.
+   - Transform and opacity only. **Motion runs even when the visitor's system asks for reduced motion** (owner's decision, accepted trade-off). The page works fully without JS or GSAP.
+5. **Top bar (2026-11-22):** name with an "XR Software Engineer" line, muted links with a sliding teal underline, a solid navy "Download CV" button and a scroll-progress line. The reticle mark was removed at the owner's request.
 5. **Quality floor:** responsive to 390px, visible keyboard focus (teal reticle ring), AA contrast, alt text.
 
 ## Self-review against the skill's templated looks (pass 2)
