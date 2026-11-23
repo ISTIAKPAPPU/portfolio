@@ -100,3 +100,11 @@ The owner asked for a second version inspired by a game-developer neon portfolio
 - **Sections:** centred titles with a glowing bar; angled cards that lift and glow on hover; a glowing experience timeline; skills as chips with no levels or percentages (only approved facts); a slow rotating glow behind Contact.
 - **Motion:** GSAP hero intro, scroll entrances (titles, items, chips), progress line, active-section underline, and canvas drift. Transform and opacity only; it runs for everyone (owner's decision).
 - **Text:** identical to the live version (approved wording; 14 experience bullets equal CV claims).
+
+### v2 update (2026-11-22, owner feedback)
+- **Light is the default theme**; dark is one click away and remembered.
+- **Glow in both themes:** teal and pink in light, cyan, violet and pink in dark.
+- **Cards follow the reference style:** 16px rounded corners, a 3px cyan-violet-pink line along the top, a soft coloured glow at rest, and on hover a lift of 6px, a violet border and a stronger glow. Angled corners removed.
+- **Card details:** the project context is a small uppercase tag. Card links are buttons: Google Play green, App Store dark, demos and other links in the accent gradient.
+- **Skills:** one card per category with the plain approved text (no chips per item).
+- **Contact:** action cards with icon boxes (Email, Download CV, LinkedIn, Google Scholar, GitHub last).

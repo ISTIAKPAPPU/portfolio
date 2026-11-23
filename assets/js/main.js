@@ -4,19 +4,19 @@
   'use strict';
   var root = document.documentElement;
 
-  /* ---- theme toggle (dark default; choice remembered; storage may be blocked) ---- */
+  /* ---- theme toggle (light default, owner 2026-11-22; choice remembered; storage may be blocked) ---- */
   var themeBtn = document.getElementById('themeToggle');
   var themeMeta = document.querySelector('meta[name="theme-color"]');
   function applyTheme(t) {
     root.setAttribute('data-theme', t);
     if (themeBtn) {
-      themeBtn.setAttribute('aria-pressed', t === 'light' ? 'true' : 'false');
+      themeBtn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
       themeBtn.setAttribute('aria-label', t === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
     }
-    if (themeMeta) { themeMeta.setAttribute('content', t === 'light' ? '#F7F9FC' : '#070B14'); }
+    if (themeMeta) { themeMeta.setAttribute('content', t === 'light' ? '#F5F8FC' : '#070B14'); }
     document.dispatchEvent(new CustomEvent('themechange', { detail: t }));
   }
-  applyTheme(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+  applyTheme(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
   if (themeBtn) {
     themeBtn.addEventListener('click', function () {
       var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
@@ -222,8 +222,7 @@
   }
   var titles = below('.section-title');
   var items = below('.about-lead, .prose p, .group-title, .work, .mini, .timeline > li, .skills > div, ' +
-    '.award, .pubs li, .edu li, .contact-lead, .contact .hero-actions, .contact-links');
-  var chips = below('.chips li');
+    '.award, .pubs li, .edu li, .contact-lead, .actions li');
   ScrollTrigger.batch(titles, {
     start: 'top 92%', once: true,
     onEnter: function (batch) { gsap.from(batch, { autoAlpha: 0, y: 26, scale: 0.97, duration: 0.8, ease: 'power3.out', overwrite: true }); }
@@ -232,12 +231,6 @@
     start: 'top 94%', once: true,
     onEnter: function (batch) {
       gsap.from(batch, { autoAlpha: 0, y: 30, duration: 0.75, ease: 'power3.out', stagger: 0.09, overwrite: true });
-    }
-  });
-  ScrollTrigger.batch(chips, {
-    start: 'top 96%', once: true,
-    onEnter: function (batch) {
-      gsap.from(batch, { autoAlpha: 0, scale: 0.8, duration: 0.45, ease: 'back.out(2)', stagger: 0.025, overwrite: true });
     }
   });
 })();

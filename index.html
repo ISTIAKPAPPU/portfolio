@@ -6,12 +6,12 @@
 <title>Istiak Ahmed, XR Software Engineer and Researcher</title>
 <meta name="description" content="Ph.D. student in Computer Science at the University of Missouri and XR software engineer with 5+ years of Unity and C# experience building AR, VR and MR applications, live mobile games and multiplayer games.">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
-<meta name="theme-color" content="#070B14">
+<meta name="theme-color" content="#F5F8FC">
 <meta name="color-scheme" content="dark light">
 <script>
-/* theme before first paint: saved choice, else dark (owner's choice). Storage may be blocked: try/catch. */
+/* theme before first paint: saved choice, else light (owner's choice). Storage may be blocked: try/catch. */
 (function () {
-  var t = 'dark';
+  var t = 'light';
   try { var s = localStorage.getItem('theme'); if (s === 'light' || s === 'dark') { t = s; } } catch (e) { /* default */ }
   var d = document.documentElement;
   d.setAttribute('data-theme', t);
@@ -39,7 +39,7 @@
   <div class="nav-inner">
     <a class="brand" href="#top"><span class="brand-name">Istiak Ahmed</span><span class="brand-role">XR Software Engineer</span></a>
     <div class="nav-tools">
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
         <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 14.6A8.4 8.4 0 0 1 9.4 3.8a8.4 8.4 0 1 0 10.8 10.8z"/></svg>
       </button>
@@ -126,14 +126,14 @@
     <h2 class="section-title" id="skills-t">Skills</h2>
     <div class="section-body">
       <dl class="skills">
-        <div><dt>Languages</dt><dd><ul class="chips"><li>C#</li><li>C++</li><li>C</li><li>Java</li><li>Kotlin</li><li>Python</li></ul></dd></div>
-        <div><dt>Engine and XR</dt><dd><ul class="chips"><li>Unity</li><li>Unity Profiler</li><li>OpenXR</li><li>Meta XR SDK</li><li>XR Interaction Toolkit</li><li>MRUK</li><li>eye and hand tracking</li></ul></dd></div>
-        <div><dt>Platforms</dt><dd><ul class="chips"><li>Meta Quest</li><li>Microsoft HoloLens</li><li>Magic Leap</li><li>HTC Vive</li><li>native Android</li><li>iOS (Unity)</li><li>WebGL</li></ul></dd></div>
-        <div><dt>Networking</dt><dd><ul class="chips"><li>Multiplayer networking with Photon and Mirror</li><li>REST APIs</li></ul></dd></div>
-        <div><dt>AI and ML</dt><dd><ul class="chips"><li>PyTorch</li><li>vision-language models</li><li>large language models</li><li>reinforcement learning</li><li>computer vision</li><li>explainable AI</li><li>differential privacy</li></ul></dd></div>
-        <div><dt>Engineering and research</dt><dd><ul class="chips"><li>Real-time XR systems</li><li>gameplay systems</li><li>performance optimization</li><li>software architecture and refactoring</li><li>XR user studies</li><li>XR security and privacy research</li></ul></dd></div>
-        <div><dt>Tools</dt><dd><ul class="chips"><li>Git</li><li>Jira</li></ul></dd></div>
-        <div><dt>Problem solving</dt><dd><ul class="chips"><li>500+ algorithm problems solved, mostly in C++ (Codeforces, CodeChef, LeetCode and others)</li></ul></dd></div>
+        <div><dt>Languages</dt><dd>C#, C++, C, Java, Kotlin, Python</dd></div>
+        <div><dt>Engine and XR</dt><dd>Unity, Unity Profiler, OpenXR, Meta XR SDK, XR Interaction Toolkit, MRUK, eye and hand tracking</dd></div>
+        <div><dt>Platforms</dt><dd>Meta Quest, Microsoft HoloLens, Magic Leap, HTC Vive, native Android, iOS (Unity), WebGL</dd></div>
+        <div><dt>Networking</dt><dd>Multiplayer networking with Photon and Mirror, REST APIs</dd></div>
+        <div><dt>AI and ML</dt><dd>PyTorch, vision-language models, large language models, reinforcement learning, computer vision, explainable AI, differential privacy</dd></div>
+        <div><dt>Engineering and research</dt><dd>Real-time XR systems, gameplay systems, performance optimization, software architecture and refactoring, XR user studies, XR security and privacy research</dd></div>
+        <div><dt>Tools</dt><dd>Git, Jira</dd></div>
+        <div><dt>Problem solving</dt><dd>500+ algorithm problems solved, mostly in C++ (Codeforces, CodeChef, LeetCode and others)</dd></div>
       </dl>
     </div>
   </section>
@@ -319,8 +319,23 @@
   <h2 class="section-title" id="contact-t">Contact</h2>
   <div class="section-body">
     <p class="contact-lead">Open to XR, Unity, game and research roles. Email is the best way to reach me.</p>
-    <p class="hero-actions"><a class="btn btn-primary" href="mailto:ia5qq@umsystem.edu">ia5qq@umsystem.edu</a><a class="btn btn-secondary" href="istiak-ahmed-cv.pdf">Download CV</a></p>
-    <p class="contact-links"><a href="https://www.linkedin.com/in/istiak-ahmed-0836601b6/" target="_blank" rel="noopener">LinkedIn</a><a href="https://scholar.google.com/citations?user=T5LAAh0AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a><a href="https://github.com/ISTIAKPAPPU" target="_blank" rel="noopener">GitHub</a></p>
+    <ul class="actions">
+      <li><a class="action action-mail" href="mailto:ia5qq@umsystem.edu">
+        <span class="action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg></span>
+        <span><span class="action-title">Email</span><span class="action-sub">ia5qq@umsystem.edu</span></span></a></li>
+      <li><a class="action action-cv" href="istiak-ahmed-cv.pdf">
+        <span class="action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M9.5 13h7M9.5 16.5h7"/></svg></span>
+        <span><span class="action-title">Download CV</span><span class="action-sub">One-page CV (PDF)</span></span></a></li>
+      <li><a class="action action-in" href="https://www.linkedin.com/in/istiak-ahmed-0836601b6/" target="_blank" rel="noopener">
+        <span class="action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zm7 0h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.37 2.65 4.37 6.1v5.35h-4v-4.75c0-1.13-.02-2.6-1.58-2.6-1.59 0-1.83 1.24-1.83 2.52v4.83h-4z"/></svg></span>
+        <span><span class="action-title">LinkedIn</span><span class="action-sub">Connect professionally</span></span></a></li>
+      <li><a class="action action-scholar" href="https://scholar.google.com/citations?user=T5LAAh0AAAAJ&amp;hl=en" target="_blank" rel="noopener">
+        <span class="action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3L1.5 10l3.5 2.3V18h2v-4.4L12 17l10.5-7zM12 19.5c-2.6 0-4.9-1-6.3-2.6l1.6-1.1C8.4 17 10 17.6 12 17.6s3.6-.6 4.7-1.8l1.6 1.1c-1.4 1.6-3.7 2.6-6.3 2.6z"/></svg></span>
+        <span><span class="action-title">Google Scholar</span><span class="action-sub">Publications and citations</span></span></a></li>
+      <li><a class="action action-gh" href="https://github.com/ISTIAKPAPPU" target="_blank" rel="noopener">
+        <span class="action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg></span>
+        <span><span class="action-title">GitHub</span><span class="action-sub">Code and projects</span></span></a></li>
+    </ul>
     <p class="foot">Columbia, Missouri. Phone +15736735513</p>
     <p class="foot">This site counts visits with StatCounter.</p>
   </div>
