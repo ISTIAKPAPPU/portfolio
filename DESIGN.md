@@ -108,3 +108,4 @@ The owner asked for a second version inspired by a game-developer neon portfolio
 - **Card details:** the project context is a small uppercase tag. Card links are buttons: Google Play green, App Store dark, demos and other links in the accent gradient.
 - **Skills:** one card per category with the plain approved text (no chips per item).
 - **Contact:** action cards with icon boxes (Email, Download CV, LinkedIn, Google Scholar, GitHub last).
+- **More projects:** the 10 video tiles carry the same centred play button (the tile opens the video; no "Watch demo" button). The portrait uses the angled gradient frame again (owner preferred it).

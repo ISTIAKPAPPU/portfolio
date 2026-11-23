@@ -200,13 +200,16 @@ a:hover { text-decoration-thickness: 2px; }
 
 .hero-portrait { margin: 0; justify-self: start; }
 @media (min-width: 960px) { .hero-portrait { justify-self: end; } }
-.portrait-frame {
-  position: relative; padding: 3px; max-width: 320px; border-radius: 22px;
-  background: var(--bar); box-shadow: var(--card-glow-hover);
+.portrait-frame {   /* angled gradient frame (owner preferred this style) */
+  position: relative; padding: 3px; max-width: 320px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  clip-path: polygon(16% 0, 100% 0, 100% 84%, 84% 100%, 0 100%, 0 16%);
 }
-.portrait-frame img { width: 100%; height: auto; border-radius: 19px; background: var(--card); }
+.hero-portrait { filter: drop-shadow(0 14px 30px rgba(var(--p1), .22)); }   /* glow that survives the clip-path */
+.portrait-frame img { width: 100%; height: auto; clip-path: polygon(16% 0, 100% 0, 100% 84%, 84% 100%, 0 100%, 0 16%); background: var(--card); }
 .portrait-frame::after {   /* slow scan sweep across the portrait */
-  content: ""; position: absolute; inset: 3px; border-radius: 19px; pointer-events: none;
+  content: ""; position: absolute; inset: 3px; pointer-events: none;
+  clip-path: polygon(16% 0, 100% 0, 100% 84%, 84% 100%, 0 100%, 0 16%);
   background: linear-gradient(180deg, transparent 0%, rgba(var(--p1), .16) 48%, transparent 56%);
   background-size: 100% 260%; animation: scan 6s linear infinite;
 }
@@ -308,7 +311,13 @@ a:hover { text-decoration-thickness: 2px; }
 @media (min-width: 720px) { .minis { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 1040px) { .minis { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .mini { display: block; color: var(--text); text-decoration: none; padding: 12px 12px 14px; }
-.mini img { aspect-ratio: 16 / 10; width: 100%; object-fit: cover; background: var(--bg-2); margin-bottom: 10px; border-radius: 10px; }
+.mini-media { position: relative; display: block; overflow: hidden; border-radius: 10px; margin-bottom: 10px; background: var(--bg-2); }
+.mini img { aspect-ratio: 16 / 10; width: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.3,1); }
+a.mini:hover img, a.mini:focus-visible img { transform: scale(1.05); }
+/* same play button as the project cards, a little smaller; the whole tile opens the video */
+.play-badge { width: 46px; height: 46px; pointer-events: none; }
+.play-badge .play-tri { border-left-width: 12px; border-top-width: 7px; border-bottom-width: 7px; margin-left: 3px; }
+a.mini:hover .play-badge, a.mini:focus-visible .play-badge { transform: translate(-50%, -50%) scale(1.1); }
 .mini-title { display: block; font-weight: 600; color: var(--ink); font-size: 15px; line-height: 1.35; }
 .mini-kind { display: block; font-size: 13.5px; color: var(--muted); }
 
