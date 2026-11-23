@@ -78,22 +78,6 @@ More projects, demo videos and the full publication list are on the [live site](
 
 ---
 
-## About this site
-
-A single-page portfolio written by hand: semantic HTML, one CSS file and a small JavaScript file, with scroll animation from [GSAP](https://gsap.com/) and ScrollTrigger (loaded from a CDN with integrity hashes). It is served by GitHub Pages from the `Portfolio_` branch. Visits are counted with StatCounter.
-
-```
-index.html              the whole page
-assets/css/styles.css   styles
-assets/js/main.js       motion, navigation, video pop-up
-assets/img/             project images
-istiak-ahmed-cv.pdf     current CV
-```
-
-To view it locally: `python -m http.server 8000`, then open http://localhost:8000.
-
----
-
 <div align="center">
 
 Open to XR, Unity, game and research roles. Email is the best way to reach me: [ia5qq@umsystem.edu](mailto:ia5qq@umsystem.edu)
