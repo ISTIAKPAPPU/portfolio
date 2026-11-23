@@ -6,7 +6,19 @@
 <title>Istiak Ahmed, XR Software Engineer and Researcher</title>
 <meta name="description" content="Ph.D. student in Computer Science at the University of Missouri and XR software engineer with 5+ years of Unity and C# experience building AR, VR and MR applications, live mobile games and multiplayer games.">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
-<meta name="theme-color" content="#0F2238">
+<meta name="theme-color" content="#070B14">
+<meta name="color-scheme" content="dark light">
+<script>
+/* theme before first paint: saved choice, else dark (owner's choice). Storage may be blocked: try/catch. */
+(function () {
+  var t = 'dark';
+  try { var s = localStorage.getItem('theme'); if (s === 'light' || s === 'dark') { t = s; } } catch (e) { /* default */ }
+  var d = document.documentElement;
+  d.setAttribute('data-theme', t);
+  d.classList.add('intro');                                   /* hero intro waits for GSAP ... */
+  setTimeout(function () { d.classList.remove('intro'); }, 2500);   /* ... but never longer than 2.5 s */
+})();
+</script>
 <link rel="canonical" href="https://istiakpappu.github.io/portfolio/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Istiak Ahmed, XR Software Engineer and Researcher">
@@ -16,7 +28,7 @@
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -26,7 +38,13 @@
 <header class="nav" id="nav">
   <div class="nav-inner">
     <a class="brand" href="#top"><span class="brand-name">Istiak Ahmed</span><span class="brand-role">XR Software Engineer</span></a>
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-tools">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 14.6A8.4 8.4 0 0 1 9.4 3.8a8.4 8.4 0 1 0 10.8 10.8z"/></svg>
+      </button>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
     <nav class="nav-links" aria-label="Sections">
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
@@ -43,14 +61,18 @@
 <main id="top">
 
   <section class="hero">
-    <div class="hero-grid" aria-hidden="true"><div class="hero-grid-plane"></div></div>
-    <div class="hero-text">
-      <h1 class="hero-name">
-        Istiak Ahmed
-      </h1>
+    <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero-text hero-intro">
+      <p class="hero-badge">XR Software Engineer · Unity · Research</p>
+      <h1 class="hero-name"><span class="grad">Istiak Ahmed</span></h1>
       <p class="hero-role">Open to XR, Unity, game and research roles</p>
       <p class="lede">XR software engineer with 5+ years of Unity and C# experience building AR, VR and MR applications, live mobile games and multiplayer games. Now a Ph.D. student in Computer Science at the University of Missouri, I build real-time XR systems that integrate AI into live XR sessions, and research how to make them secure, private and comfortable.</p>
       <p class="facts">9 peer-reviewed papers and an IEEE ISMAR 2025 Best Poster Award.</p>
+      <ul class="stats" aria-label="Highlights">
+        <li class="stat"><span class="stat-num" data-count="5" data-suffix="+">5+</span><span class="stat-label">years of Unity and C#</span></li>
+        <li class="stat"><span class="stat-num" data-count="9">9</span><span class="stat-label">peer-reviewed papers</span></li>
+        <li class="stat"><span class="stat-num stat-text">ISMAR 2025</span><span class="stat-label">Best Poster Award</span></li>
+      </ul>
       <div class="hero-actions">
         <a class="btn btn-primary" href="istiak-ahmed-cv.pdf">Download CV</a>
         <a class="btn btn-secondary" href="mailto:ia5qq@umsystem.edu">Email me</a>
@@ -59,7 +81,8 @@
         <a class="plain" href="https://github.com/ISTIAKPAPPU" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
-    <figure class="hero-portrait"><img src="assets/img/istiak_P1.png" alt="Portrait of Istiak Ahmed" width="360" height="450"></figure>
+    <figure class="hero-portrait hero-intro"><div class="portrait-frame"><img src="assets/img/istiak_P1.png" alt="Portrait of Istiak Ahmed" width="360" height="450"></div></figure>
+    <a class="scroll-cue" href="#about" aria-label="Scroll to About"><span>Scroll</span></a>
   </section>
 
   <section class="section" id="about" aria-labelledby="about-t">
@@ -103,14 +126,14 @@
     <h2 class="section-title" id="skills-t">Skills</h2>
     <div class="section-body">
       <dl class="skills">
-        <div><dt>Languages</dt><dd>C#, C++, C, Java, Kotlin, Python</dd></div>
-        <div><dt>Engine and XR</dt><dd>Unity, Unity Profiler, OpenXR, Meta XR SDK, XR Interaction Toolkit, MRUK, eye and hand tracking</dd></div>
-        <div><dt>Platforms</dt><dd>Meta Quest, Microsoft HoloLens, Magic Leap, HTC Vive, native Android, iOS (Unity), WebGL</dd></div>
-        <div><dt>Networking</dt><dd>Multiplayer networking with Photon and Mirror, REST APIs</dd></div>
-        <div><dt>AI and ML</dt><dd>PyTorch, vision-language models, large language models, reinforcement learning, computer vision, explainable AI, differential privacy</dd></div>
-        <div><dt>Engineering and research</dt><dd>Real-time XR systems, gameplay systems, performance optimization, software architecture and refactoring, XR user studies, XR security and privacy research</dd></div>
-        <div><dt>Tools</dt><dd>Git, Jira</dd></div>
-        <div><dt>Problem solving</dt><dd>500+ algorithm problems solved, mostly in C++ (Codeforces, CodeChef, LeetCode and others)</dd></div>
+        <div><dt>Languages</dt><dd><ul class="chips"><li>C#</li><li>C++</li><li>C</li><li>Java</li><li>Kotlin</li><li>Python</li></ul></dd></div>
+        <div><dt>Engine and XR</dt><dd><ul class="chips"><li>Unity</li><li>Unity Profiler</li><li>OpenXR</li><li>Meta XR SDK</li><li>XR Interaction Toolkit</li><li>MRUK</li><li>eye and hand tracking</li></ul></dd></div>
+        <div><dt>Platforms</dt><dd><ul class="chips"><li>Meta Quest</li><li>Microsoft HoloLens</li><li>Magic Leap</li><li>HTC Vive</li><li>native Android</li><li>iOS (Unity)</li><li>WebGL</li></ul></dd></div>
+        <div><dt>Networking</dt><dd><ul class="chips"><li>Multiplayer networking with Photon and Mirror</li><li>REST APIs</li></ul></dd></div>
+        <div><dt>AI and ML</dt><dd><ul class="chips"><li>PyTorch</li><li>vision-language models</li><li>large language models</li><li>reinforcement learning</li><li>computer vision</li><li>explainable AI</li><li>differential privacy</li></ul></dd></div>
+        <div><dt>Engineering and research</dt><dd><ul class="chips"><li>Real-time XR systems</li><li>gameplay systems</li><li>performance optimization</li><li>software architecture and refactoring</li><li>XR user studies</li><li>XR security and privacy research</li></ul></dd></div>
+        <div><dt>Tools</dt><dd><ul class="chips"><li>Git</li><li>Jira</li></ul></dd></div>
+        <div><dt>Problem solving</dt><dd><ul class="chips"><li>500+ algorithm problems solved, mostly in C++ (Codeforces, CodeChef, LeetCode and others)</li></ul></dd></div>
       </dl>
     </div>
   </section>

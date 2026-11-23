@@ -82,3 +82,21 @@ Method: Anthropic `frontend-design` skill (two passes: plan, review against the 
 **Revisions made in this pass:**
 - Dropped a second accent (amber for the award). The award now uses the teal accent plus the words "Best Poster Award".
 - Replaced the dark research band with the light Mist band, to keep the page formal and one-toned.
+
+## v2 (branch `v2-neon`, 2026-11-22): neon, toned for XR + research, dark/light
+
+The owner asked for a second version inspired by a game-developer neon portfolio, with a dark/light toggle. It is NOT merged into `Portfolio_`; the live site keeps the design above.
+
+- **Themes:** tokens on `:root[data-theme]`.
+  - Dark is the default: near-black navy `#070B14`, cyan `#22D3EE`, violet `#A78BFA`, soft glows.
+  - Light: `#F7F9FC` background, navy text, teal `#0E7490`, violet `#6D28D9`, shadows instead of glow.
+  - Every text/background pair is at least 4.5:1 (checked).
+  - An inline head script applies the saved theme before first paint. `localStorage` sits inside try/catch, so it works even when storage is blocked.
+- **Type:** Space Grotesk (display), IBM Plex Sans (text).
+- **Hero:**
+  - A canvas particle network: at most 70 particles, linked lines, a gentle push away from the pointer, paused when off-screen or the tab is hidden, colours from the theme.
+  - A glowing badge, the name in a slow-moving gradient, and counters (5+ years, 9 papers) plus the ISMAR 2025 award.
+  - Angled (clip-path) buttons, the portrait in an angled gradient frame with a slow scan sweep, and a scroll cue.
+- **Sections:** centred titles with a glowing bar; angled cards that lift and glow on hover; a glowing experience timeline; skills as chips with no levels or percentages (only approved facts); a slow rotating glow behind Contact.
+- **Motion:** GSAP hero intro, scroll entrances (titles, items, chips), progress line, active-section underline, and canvas drift. Transform and opacity only; it runs for everyone (owner's decision).
+- **Text:** identical to the live version (approved wording; 14 experience bullets equal CV claims).
