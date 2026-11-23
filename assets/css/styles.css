@@ -127,8 +127,22 @@ a:hover { color: var(--lens-dark); text-decoration-thickness: 2px; }
 .plain { font-size: 15px; }
 .hero-portrait { margin: 0; justify-self: start; }
 @media (min-width: 900px) { .hero-portrait { justify-self: end; } }
-.hero-portrait img { width: 100%; max-width: 300px; height: auto; border-radius: 6px; filter: saturate(0.92); }
-@media (max-width: 899px) { .hero-portrait { order: -1; } .hero-portrait img { max-width: 168px; } }
+/* angled gradient frame with a slow scan sweep (owner's choice from the v2 design, 2026-11-22) */
+.hero-portrait { filter: drop-shadow(0 14px 30px rgba(14, 107, 107, 0.20)); }
+.portrait-frame {
+  position: relative; padding: 3px; max-width: 300px;
+  background: linear-gradient(135deg, #0E7490, #6D28D9);
+  clip-path: polygon(16% 0, 100% 0, 100% 84%, 84% 100%, 0 100%, 0 16%);
+}
+.portrait-frame img { width: 100%; height: auto; clip-path: polygon(16% 0, 100% 0, 100% 84%, 84% 100%, 0 100%, 0 16%); background: #fff; }
+.portrait-frame::after {
+  content: ""; position: absolute; inset: 3px; pointer-events: none;
+  clip-path: polygon(16% 0, 100% 0, 100% 84%, 84% 100%, 0 100%, 0 16%);
+  background: linear-gradient(180deg, transparent 0%, rgba(14, 116, 144, 0.16) 48%, transparent 56%);
+  background-size: 100% 260%; animation: scan 6s linear infinite;
+}
+@keyframes scan { from { background-position: 0 -130%; } to { background-position: 0 130%; } }
+@media (max-width: 899px) { .hero-portrait { order: -1; } .portrait-frame { max-width: 176px; } }
 @keyframes arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
 /* ---------- sections: title rail + body ---------- */
